@@ -1,0 +1,39 @@
+.shop-quality-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 200px;
+    flex-wrap: wrap;
+}
+
+.shop-quality-container .quality-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 100%;
+}
+
+.quality-item-container h3 {
+    margin-bottom: 5px;
+}
+
+.shop-quality-container .img-container {
+    min-height: 250px;
+    width: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid black;
+}
+
+.shop-quality-container .support-local {
+    background-image: url('http://localhost:3000/support-local.JPG');
+}
+
+.shop-quality-container .high-quality {
+    background-image: url('http://localhost:3000/high-quality.JPG');
+}
+
+.shop-quality-container .eco-friendly {
+    background-image: url('http://localhost:3000/eco-friendly.JPG');
+}

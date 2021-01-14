@@ -1,0 +1,35 @@
+.partners-container {
+    margin-top: 200px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.partners-list {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+    width: 60%;
+    flex-wrap: wrap;
+}
+
+.partners-list .partner-item {
+    height: 75px;
+    width: 150px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.partners-list .amazon {
+    background-image: url('http://localhost:3000/amazon.JPG');
+}
+
+.partners-list .shopify {
+    background-image: url('http://localhost:3000/shopify.JPG');
+}
+
+.partners-list .wix {
+    background-image: url('http://localhost:3000/wix.JPG');
+}

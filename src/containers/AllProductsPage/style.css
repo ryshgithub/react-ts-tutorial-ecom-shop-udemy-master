@@ -1,0 +1,13 @@
+.all-products-page-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+
+.all-products-page-container .product-item-container {
+    flex-basis: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}

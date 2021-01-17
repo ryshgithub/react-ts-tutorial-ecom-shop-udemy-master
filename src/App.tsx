@@ -20,8 +20,6 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaM
 
 sagaMiddleware.run(startRootSaga);
 
-store.dispatch({ type: ProductDetailsAction.FETCH_PRODUCTS_DETAILS });
-
 (window as any).shopspree = store;
 
 function App() {

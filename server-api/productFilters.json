@@ -1,0 +1,5 @@
+{
+    "gender": ["Men", "Women", "Unisex"],
+    "category": ["Long Sleeve", "Slim Fit", "Short Sleeve", "Short", "Summer", "Polo", "Dress"],
+    "trends": ["Best Seller", "Hot This Month"]
+}

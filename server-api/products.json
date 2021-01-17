@@ -1,9 +1,8 @@
 [
     {
         "id": "prod-1",
-        "category": [ "Men", "Long Sleeve", "Slim Fit" ],
+        "category": [ "Men", "Long Sleeve", "Slim Fit", "Best Seller" ],
         "title": "Formal Dress Shirts Casual Long Sleeve Slim Fit",
-        "isBestSeller": true,
         "variants": [
             {
                 "id": "var-1123",
@@ -186,9 +185,8 @@
     },
     {
         "id": "prod-3",
-        "category": ["Unisex", "Short", "Slim Fit", "Summer"],
+        "category": ["Unisex", "Short", "Slim Fit", "Summer", "Best Seller"],
         "title": "Soft Summer Short Slim Fit",
-        "isBestSeller": true,
         "variants": [
             {
                 "id": "var-17",
@@ -267,9 +265,8 @@
     },
     {
         "id": "prod-5",
-        "category": ["Women", "Dress"],
+        "category": ["Women", "Dress", "Best Seller", "Hot This Month"],
         "title": "Tiered Wave Shirt Dress",
-        "isBestSeller": true,
         "variants": [
             {
                 "id": "var-25",

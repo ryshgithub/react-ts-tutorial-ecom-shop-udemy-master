@@ -1,16 +1,18 @@
 import { RouteComponentProps } from "react-router-dom";
-import { GetProducsOptions } from "../../api/productsDetailsAPI";
-import { FetchShopProductsAction } from "../../store/actions/productDetailsAction";
-import { ProductDetails, ShopProducts } from "../../store/reducers/productDetailsReducer";
+import { GetProducsOptions } from "../../api/shopAPI";
+import { FetchShopProductsAction } from "../../store/actions/shopAction";
+import { Shop, ProductFilters, ShopProducts } from "../../store/reducers/shopReducer";
 
 export interface AllProductsStateProps {
     shopProducts: ShopProducts;
+    productFilters: ProductFilters;
 }
 
 export interface AllProductsOwnProps extends RouteComponentProps {}
 
 export interface AllProductsDispatchToProps {
     fetchShopProducts(options: GetProducsOptions): FetchShopProductsAction;
+    fetchShopProductsAndFilters():any;
 }
 
 export type AllProductsPageProps = AllProductsStateProps & AllProductsOwnProps & AllProductsDispatchToProps;

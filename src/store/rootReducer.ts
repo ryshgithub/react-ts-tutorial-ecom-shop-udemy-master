@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { productDetailsReducer } from "./reducers/productDetailsReducer";
+import { shopReducer } from "./reducers/shopReducer";
 
 export const rootReducer = combineReducers({
-    productDetails: productDetailsReducer
+    shop: shopReducer
 });
 
 export type StoreStateType = ReturnType<typeof rootReducer>

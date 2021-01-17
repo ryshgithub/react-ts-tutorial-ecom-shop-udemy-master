@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, MapDispatchToPropsFunction, MapStateToProps } from 'react-redux';
 import { ProductCard } from '../../components/ProductCard';
-import ProductDetailsAction from '../../store/actions/productDetailsAction';
+import ShopAction from '../../store/actions/shopAction';
 import { StoreStateType } from '../../store/rootReducer';
 import { BestSellerDispatchProps, BestSellerProps, BestSellerStateProps } from './inteface';
 import './style.css';
@@ -43,12 +43,12 @@ class BestSeller extends React.Component<BestSellerProps> {
 
 const mapStateToProps: MapStateToProps<BestSellerStateProps, {}, StoreStateType> = (state) => {
     return {
-        bestSellerProducts: state.productDetails.bestSellerProducts
+        bestSellerProducts: state.shop.bestSellerProducts
     }
 }
 
 const mapDispatchToProps: MapDispatchToPropsFunction<BestSellerDispatchProps, {}> = (dispatch) => {
-    const { fetchAllBestSellerProducts } = new ProductDetailsAction();
+    const { fetchAllBestSellerProducts } = new ShopAction();
 
     return {
         fetchAllBestSellerProducts: () => dispatch(fetchAllBestSellerProducts())

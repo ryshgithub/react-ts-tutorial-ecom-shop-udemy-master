@@ -1,4 +1,4 @@
-import { Product } from "../../store/reducers/productDetailsReducer";
+import { Product } from "../../store/reducers/shopReducer";
 
 export interface BestSellerStateProps {
     bestSellerProducts: Product[];

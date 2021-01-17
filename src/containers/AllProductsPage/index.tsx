@@ -8,7 +8,11 @@ import './style.css';
 
 class AllProductsPage extends React.Component<AllProductsPageProps> {
     componentDidMount() {
-        this.props.fetchShopProducts({})
+        const { shopProducts } = this.props;
+
+        if(!shopProducts.products.length) {
+            this.props.fetchShopProducts({})
+        }
     }
 
     renderAllProducts = () => {

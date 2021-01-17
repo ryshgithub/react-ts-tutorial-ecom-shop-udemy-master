@@ -29,17 +29,21 @@ export interface ShopProducts {
 
 export interface ProductDetails {
     shopProducts: ShopProducts;
+    bestSellerProducts: Product[];
 }
 
 const productDetailsInitialState: ProductDetails = {
     shopProducts: {
         products: [],
         productsCount: 0,
-    }
+    },
+    bestSellerProducts: []
 }
 
 export const productDetailsReducer: Reducer<ProductDetails, ProductDetailsReducerAction> = (state = productDetailsInitialState, action) => {
     switch(action.type) {
+        case ProductDetailsAction.SET_BEST_SELLER_PRODUCTS:
+            return update(state, { bestSellerProducts: { $set: action.bestSellerProducts } })
         case ProductDetailsAction.SET_SHOP_PRODUCTS:
             return update(state, { shopProducts: { $set: action.shopProducts } })
         default:

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect, MapDispatchToPropsFunction, MapStateToProps } from 'react-redux';
+import { AllProductsSideBar } from '../../components/AllProductsSideBar';
 import { ProductCard } from '../../components/ProductCard';
 import ShopAction from '../../store/actions/shopAction';
 import { StoreStateType } from '../../store/rootReducer';
@@ -27,9 +28,13 @@ class AllProductsPage extends React.Component<AllProductsPageProps> {
     }
 
     render() {
+        const { productFilters } = this.props;
         return (
             <div className="all-products-page-container">
-                {this.renderAllProducts()}
+                <AllProductsSideBar productFilters={productFilters} />
+                <div className="all-products-container">
+                    {this.renderAllProducts()}
+                </div>
             </div>
         )
     }

@@ -1,0 +1,20 @@
+.all-products-side-bar {
+    width: 300px;
+    height: 600px;
+}
+
+.all-products-side-bar .product-filter {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-top: 1px solid #ececec;
+}
+
+.all-products-side-bar .product-filter .filter-checkbox {
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.all-products-side-bar .product-filter p {
+    font-size: 18px;
+}

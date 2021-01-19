@@ -3,6 +3,7 @@ import { connect, MapDispatchToPropsFunction, MapStateToProps } from 'react-redu
 import { AllProductsSideBar } from '../../components/AllProductsSideBar';
 import { ProductCard } from '../../components/ProductCard';
 import ShopAction from '../../store/actions/shopAction';
+import UserAction from '../../store/actions/userAction';
 import { StoreStateType } from '../../store/rootReducer';
 import { AllProductsDispatchToProps, AllProductsOwnProps, AllProductsPageProps, AllProductsStateProps } from './interface';
 import './style.css';
@@ -28,10 +29,10 @@ class AllProductsPage extends React.Component<AllProductsPageProps> {
     }
 
     render() {
-        const { productFilters } = this.props;
+        const { productFilters, userFilters, updateUserFilters } = this.props;
         return (
             <div className="all-products-page-container">
-                <AllProductsSideBar productFilters={productFilters} />
+                <AllProductsSideBar onUpdateUserFilters={updateUserFilters} userFilters={userFilters} productFilters={productFilters} />
                 <div className="all-products-container">
                     {this.renderAllProducts()}
                 </div>
@@ -42,17 +43,21 @@ class AllProductsPage extends React.Component<AllProductsPageProps> {
 
 const mapStateToProps: MapStateToProps<AllProductsStateProps, AllProductsOwnProps, StoreStateType> = (state) => {
     const { shopProducts, productFilters } = state.shop;
+    const { filters } = state.user;
     return {
         shopProducts: shopProducts,
-        productFilters: productFilters
+        productFilters: productFilters,
+        userFilters: filters
     }
 }
 
 const mapDispatchToProps: MapDispatchToPropsFunction<AllProductsDispatchToProps, AllProductsOwnProps> = (dispatch) => {
     const { fetchShopProducts, fetchShopProductsAndFilters } = new ShopAction();
+    const { updateUserFilters } = new UserAction();
     return {
         fetchShopProducts:(options) => dispatch(fetchShopProducts(options)),
         fetchShopProductsAndFilters: () => dispatch(fetchShopProductsAndFilters()),
+        updateUserFilters: (filters) => dispatch(updateUserFilters(filters)),
     }
 }
 

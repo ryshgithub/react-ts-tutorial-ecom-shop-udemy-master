@@ -1,7 +1,10 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
-import ShopAPI, { ProductFiltersAPIResponse } from '../../api/shopAPI';
+import { call, put, select, takeLatest } from 'redux-saga/effects'
+import ShopAPI, { GetProducsOptions, ProductFiltersAPIResponse } from '../../api/shopAPI';
+import { convertFiltersToCategories } from '../../utils/helper';
 import ShopAction, { FetchShopProductsAction } from '../actions/shopAction'
 import { Shop, ShopProducts } from '../reducers/shopReducer';
+import { User } from '../reducers/userReducer';
+import { StoreStateType } from '../rootReducer';
 
 function* workerFetchShopProductsSaga(action: FetchShopProductsAction) {
     const shopAPI = new ShopAPI();
@@ -38,8 +41,16 @@ function* workerFetchShopProductsAndFilterSaga(action: FetchShopProductsAction) 
     const shopAction = new ShopAction();
 
     try {
-        const productsResponse = yield call(shopAPI.getProducts, {});
+        const user: User = yield select((state: StoreStateType) => state.user);
+
+        const options: GetProducsOptions = {
+            page: user.shopProductsPage,
+            size: user.shopProductsSize,
+        };
+
+        const productsResponse = yield call(shopAPI.getProducts, options);
         const productFiltersResponse = yield call(shopAPI.getProductFilters);
+
         const shopProducts = productsResponse.data as ShopProducts;
         const { productFilters } = productFiltersResponse.data as ProductFiltersAPIResponse;
 

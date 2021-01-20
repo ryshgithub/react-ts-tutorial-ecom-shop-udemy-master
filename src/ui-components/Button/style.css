@@ -1,0 +1,36 @@
+.btn {
+    height: 40px;
+    width: auto;
+    border-radius: 5px;
+    border: none;
+    outline: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Arial;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background-color: #e66b00;
+}
+
+.btn-primary:hover {
+    background-color: #a44e00;
+}
+
+.btn-primary.selected {
+    background-color: #a44e00;
+}
+
+.btn-default {
+    background-color: #FFFFFF;
+    color: #404040;
+    border: 1px solid #a8a8a8;
+}
+
+.btn-default:hover, .btn-default.selected {
+    background-color: #b3b3b3;
+}

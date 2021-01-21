@@ -1,4 +1,9 @@
+import { Product } from "../../store/reducers/shopReducer";
+
 export interface ProductCardProps {
-    url: string;
-    name: string;
+    product: Product;
+}
+
+export interface ProductCardState {
+    showDetails: boolean;
 }

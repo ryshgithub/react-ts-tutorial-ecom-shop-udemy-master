@@ -6,7 +6,6 @@ import { ProductCard } from '../../components/ProductCard';
 import ShopAction from '../../store/actions/shopAction';
 import UserAction from '../../store/actions/userAction';
 import { StoreStateType } from '../../store/rootReducer';
-import { Button } from '../../ui-components/Button';
 import { Modal } from '../../ui-components/Modal';
 import { AllProductsDispatchToProps, AllProductsOwnProps, AllProductsPageProps, AllProductsStateProps } from './interface';
 import './style.css';
@@ -22,10 +21,10 @@ class AllProductsPage extends React.Component<AllProductsPageProps> {
 
     renderAllProducts = () => {
         const { shopProducts } = this.props;
-        return shopProducts.products.map(({ title, variants, id  }) => {
+        return shopProducts.products.map((product) => {
             return (
-                <div key={id} className="product-item-container">
-                    <ProductCard name={title} url={variants[0].image} />
+                <div key={product.id} className="product-item-container">
+                    <ProductCard product={product}  />
                 </div>
             );
         })
@@ -41,7 +40,6 @@ class AllProductsPage extends React.Component<AllProductsPageProps> {
         const { productFilters, userFilters, updateUserFilters, shopProducts, userSelectedPage } = this.props;
         return (
             <div className="all-products-page-container">
-                <Modal><div>My First Modal</div></Modal>
                 <AllProductsSideBar onUpdateUserFilters={updateUserFilters} userFilters={userFilters} productFilters={productFilters} />
                 <div className="all-products-container">
                     <div className="all-products">

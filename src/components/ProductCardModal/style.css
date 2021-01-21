@@ -1,0 +1,22 @@
+.product-card-modal-body {
+    background-color: white;
+    width: 600px;
+}
+
+.product-card-modal-body .modal-product-details-container {
+    display: flex;
+}
+
+.product-card-modal-body img {
+    height: 305px;
+    width: 210px;
+}
+
+.modal-product-details {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.product-card-modal-body .modal-product-name {
+    font-weight: 700;
+}

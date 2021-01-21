@@ -25,11 +25,17 @@ export class Modal extends React.Component<ModalProps> {
         event.stopPropagation();
     }
 
+    onClickOutsideModalBody = () => {
+        const { onClickOutsideModalBody } = this.props;
+
+        onClickOutsideModalBody && onClickOutsideModalBody();
+    }
+
     render() {
         const { show = true, modalBodyClassName } = this.props;
         return show ? ReactDOM.createPortal(
             <div onClick={this.removeOnClickPropagation} className="modal-container">
-                <div className="modal-overlay" />
+                <div onClick={this.onClickOutsideModalBody} className="modal-overlay" />
                 <div className={`modal-body ${modalBodyClassName || ''}`}>
                     {this.props.children}
                 </div>

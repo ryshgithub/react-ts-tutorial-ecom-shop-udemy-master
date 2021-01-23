@@ -1,7 +1,13 @@
-import { Product } from "../../store/reducers/shopReducer";
+import { Product, ProductVariantCompleteDetails } from "../../store/reducers/shopReducer";
 
 export interface ProductCardModalProps {
     show: boolean;
-    product: Product;
     onClickOutsideModalBody():void;
+    initialVariant: ProductVariantCompleteDetails;
+    variants: ProductVariantCompleteDetails[];
+}
+
+export interface ProductCardModalState {
+    selectedVariant: ProductVariantCompleteDetails;
+    quantity: number;
 }

@@ -12,3 +12,13 @@ export const convertFiltersToCategories = (filters: ProductFilters) => {
 
     return categories;
 }
+
+export const omit = (obj: any, keysToOmit: string[]) => {
+    const newObj:any = {};
+
+    Object.keys(obj).forEach(key => {
+        if(!keysToOmit.includes(key)) newObj[key] = obj[key];
+    });
+
+    return newObj;
+}

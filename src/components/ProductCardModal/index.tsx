@@ -51,6 +51,11 @@ export class ProductCardModal extends React.Component<ProductCardModalProps, Pro
         }
     }
 
+    handleAddToCart = () => {
+        const { selectedVariant, quantity } = this.state;
+        this.props.addToCart({ ...selectedVariant, quantity });
+    }
+
     render() {
         const { show, onClickOutsideModalBody, variants, variantsOptionsAvailable } = this.props;
         const { selectedVariant, quantity } = this.state;
@@ -77,7 +82,7 @@ export class ProductCardModal extends React.Component<ProductCardModalProps, Pro
                             onColorChange={this.handleColorChange}
                             variantsOptionsAvailable={variantsOptionsAvailable}
                         />
-                        <Button type="primary" onClick={() => {}} className="add-to-cart-button" >
+                        <Button type="primary" onClick={this.handleAddToCart} className="add-to-cart-button" >
                             Add To Cart
                         </Button>
                     </div>

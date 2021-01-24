@@ -20,11 +20,14 @@ class AllProductsPage extends React.Component<AllProductsPageProps> {
     }
 
     renderAllProducts = () => {
-        const { shopProducts } = this.props;
+        const { shopProducts, addToCart } = this.props;
         return shopProducts.products.map((product) => {
             return (
                 <div key={product.id} className="product-item-container">
-                    <ProductCard product={product}  />
+                    <ProductCard
+                        product={product}
+                        addToCart={addToCart}
+                    />
                 </div>
             );
         })
@@ -65,12 +68,13 @@ const mapStateToProps: MapStateToProps<AllProductsStateProps, AllProductsOwnProp
 
 const mapDispatchToProps: MapDispatchToPropsFunction<AllProductsDispatchToProps, AllProductsOwnProps> = (dispatch) => {
     const { fetchShopProducts, fetchShopProductsAndFilters } = new ShopAction();
-    const { updateUserFilters, updateUserShopProductsPage } = new UserAction();
+    const { updateUserFilters, updateUserShopProductsPage, addToCart } = new UserAction();
     return {
         fetchShopProducts:(options) => dispatch(fetchShopProducts(options)),
         fetchShopProductsAndFilters: () => dispatch(fetchShopProductsAndFilters()),
         updateUserFilters: (filters) => dispatch(updateUserFilters(filters)),
-        updateUserShopProductsPage: (shopProductsPage) => dispatch(updateUserShopProductsPage(shopProductsPage))
+        updateUserShopProductsPage: (shopProductsPage) => dispatch(updateUserShopProductsPage(shopProductsPage)),
+        addToCart: (productPurchase) => dispatch(addToCart(productPurchase)),
     }
 }
 

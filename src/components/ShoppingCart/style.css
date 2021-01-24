@@ -1,0 +1,19 @@
+.shopping-cart-container {
+    position: relative;
+}
+
+.shopping-cart-container .shop-cart-notification {
+    position: absolute;
+    border-radius: 50px;
+    top: -10px;
+    right: -15px;
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: pointer;
+    border: 2px solid black;
+}

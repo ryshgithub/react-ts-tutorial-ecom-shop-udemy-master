@@ -1,0 +1,6 @@
+.popover-content-container {
+    display: flex;
+    position: absolute;
+    box-shadow: -2px 3px 12px #c8c8c8;
+    border-radius: 5px;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTE } from '../../constants/route';
+import ShoppingCart from '../ShoppingCart';
 import './style.css';
 
 export const HeaderNavigation: React.FC = () => {
@@ -11,7 +12,7 @@ export const HeaderNavigation: React.FC = () => {
                 <Link className="nav-item" to={ROUTE.ALL_PRODUCTS}>All Products</Link>
             </div>
             <div className="nav-items-right">
-                <i className="nav-item fa fa-shopping-cart"></i>
+                <ShoppingCart />
             </div>
         </div>
     )

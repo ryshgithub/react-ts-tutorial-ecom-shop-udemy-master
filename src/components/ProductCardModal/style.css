@@ -128,3 +128,8 @@
 .product-card-modal-body .qty-button {
     cursor: pointer;
 }
+
+.product-card-modal-body .quantity-container-label {
+    display: flex;
+    align-items: center;
+}

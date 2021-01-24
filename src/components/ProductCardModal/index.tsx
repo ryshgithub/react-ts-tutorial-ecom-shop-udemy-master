@@ -17,9 +17,42 @@ export class ProductCardModal extends React.Component<ProductCardModalProps, Pro
         }
     }
 
+    handleClickQuantityAddButton = () => {
+        const { quantity, selectedVariant } = this.state;
+
+        selectedVariant.stock > quantity && this.setState({ quantity: quantity + 1 });
+    }
+
+    handleClickQuantityMinusButton = () => {
+        const { quantity } = this.state;
+
+        quantity > 1 && this.setState({ quantity: quantity - 1 });
+    }
+
+    handleSizeChange = (size: string) => {
+        const { selectedVariant } = this.state;
+        const { variants } = this.props;
+
+        if(selectedVariant.size !== size) {
+            this.setState({
+                selectedVariant: variants.filter(variant => variant.size === size && variant.stock > 0)[0]
+            });
+        }
+    }
+
+    handleColorChange = (color: string) => {
+        const { selectedVariant } = this.state;
+        const { variants } = this.props;
+        
+        if(selectedVariant.color !== color) {
+            this.setState({
+                selectedVariant: variants.filter(variant => variant.size === selectedVariant.size && variant.color === color && variant.stock > 0)[0]
+            });
+        }
+    }
 
     render() {
-        const { show, onClickOutsideModalBody, variants } = this.props;
+        const { show, onClickOutsideModalBody, variants, variantsOptionsAvailable } = this.props;
         const { selectedVariant, quantity } = this.state;
         const { title, image } = selectedVariant;
 
@@ -32,8 +65,18 @@ export class ProductCardModal extends React.Component<ProductCardModalProps, Pro
                     <div className="modal-product-details">
                         <p className="modal-product-name">{title}</p>
                         <ProductCardModalPriceUI selectedVariant={selectedVariant} />
-                        <ProductCardModalQuantityUI quantity={quantity} />
-                        <ProductCardModalVariantOptions selectedVariant={selectedVariant} variants={variants}  />
+                        <ProductCardModalQuantityUI
+                            quantity={quantity}
+                            onClickAdd={this.handleClickQuantityAddButton}
+                            onClickMinus={this.handleClickQuantityMinusButton}
+                        />
+                        <ProductCardModalVariantOptions
+                            selectedVariant={selectedVariant}
+                            variants={variants} 
+                            onSizeChange={this.handleSizeChange}
+                            onColorChange={this.handleColorChange}
+                            variantsOptionsAvailable={variantsOptionsAvailable}
+                        />
                         <Button type="primary" onClick={() => {}} className="add-to-cart-button" >
                             Add To Cart
                         </Button>

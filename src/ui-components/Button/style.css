@@ -34,3 +34,10 @@
 .btn-default:hover, .btn-default.selected {
     background-color: #b3b3b3;
 }
+
+.btn.disabled {
+    background-color: #EBEBE4;
+    color: #C6C6C6;
+    cursor: not-allowed;
+    transform: scale(1);
+}

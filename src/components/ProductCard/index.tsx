@@ -23,7 +23,7 @@ export class ProductCard extends React.Component<ProductCardProps, ProductCardSt
     render() {
         const { showDetails } = this.state;
         const { product } = this.props;
-        const { initialVariant, variants } = getProductVariantDetails(product);
+        const { initialVariant, variants, variantsOptionsAvailable } = getProductVariantDetails(product);
 
         return initialVariant ? (
             <div onClick={this.onClickProductCard} className="product-card-container">
@@ -36,6 +36,7 @@ export class ProductCard extends React.Component<ProductCardProps, ProductCardSt
                     show={showDetails}
                     initialVariant={initialVariant} 
                     variants={variants} 
+                    variantsOptionsAvailable={variantsOptionsAvailable}
                 />
             </div>
         ) : null;

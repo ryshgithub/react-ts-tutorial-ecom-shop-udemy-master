@@ -51,12 +51,16 @@ export const getProductVariantDetails = (product: Product): GetProductVariantDet
     }
 }
 
+export const parsePrice = (price: string) => {
+    return parseFloat(price.replace('$', ''));
+}
+
 export const getDiscountedPrice = (price: string, discount: string) => {
-    const currentPrice = parseFloat(price.replace('$', ''));
+    const currentPrice = parsePrice(price);
     let discountedPrice: number;
 
     if(discount.includes('$')) {
-        discountedPrice = currentPrice - parseFloat(discount.replace('$', ''));
+        discountedPrice = currentPrice - parsePrice(discount);
     } else {
         discountedPrice = currentPrice - (currentPrice * (parseFloat(discount)/100));
     }

@@ -33,6 +33,11 @@ export const userReducer: Reducer<User, UserReducerAction> = (state = userInitia
             return update(state, { shopProductsPage: { $set: action.shopProductsPage } });
         case UserAction.ADD_TO_CART:
             return update(state, { cart: { $push: [ action.productPurchase ] } });
+        case UserAction.REMOVE_TO_CART:
+            const { productId, variantId } = action.productPurchase;
+            const newCart = state.cart.filter(product => product.productId !== productId && product.variantId !== variantId);
+
+            return update(state, { cart: { $set: newCart } });
         default:
             return state;
     }

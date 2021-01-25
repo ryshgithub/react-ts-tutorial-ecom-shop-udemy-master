@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTE } from '../../constants/route';
-import ShoppingCart from '../ShoppingCart';
+import ShoppingCart from '../../containers/ShoppingCart';
 import './style.css';
 
 export const HeaderNavigation: React.FC = () => {

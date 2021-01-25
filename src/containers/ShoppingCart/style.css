@@ -17,3 +17,22 @@
     cursor: pointer;
     border: 2px solid black;
 }
+
+.shopping-cart-container-popover {
+    width: 300px;
+}
+
+.shopping-cart-container-popover .sub-total {
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.shopping-cart-container-popover .checkout-button {
+    width: 100%;
+}
+
+.shopping-cart-container-popover .shopping-cart-all-products {
+    max-height: 500px;
+    overflow-y: auto;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ProductPurchase } from '../../store/reducers/userReducer';
 import { getProductVariantDetails } from '../../utils/product';
 import { ProductCardModal } from '../ProductCardModal';
 import { ProductCardProps, ProductCardState } from './interface';
@@ -20,6 +21,11 @@ export class ProductCard extends React.Component<ProductCardProps, ProductCardSt
         this.setState({ showDetails: false });
     }
 
+    handleAddToCart = (product: ProductPurchase) => {
+        this.props.addToCart(product);
+        this.setState({ showDetails: false });
+    }
+
     render() {
         const { showDetails } = this.state;
         const { product, addToCart } = this.props;
@@ -37,7 +43,7 @@ export class ProductCard extends React.Component<ProductCardProps, ProductCardSt
                     initialVariant={initialVariant} 
                     variants={variants} 
                     variantsOptionsAvailable={variantsOptionsAvailable}
-                    addToCart={addToCart}
+                    addToCart={this.handleAddToCart}
                 />
             </div>
         ) : null;

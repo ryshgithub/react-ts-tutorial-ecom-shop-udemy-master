@@ -1,0 +1,19 @@
+.customer-info-container {
+    padding: 20px;
+    box-sizing: border-box;
+    width: 50%;
+    margin-left: 50px;
+    border: 1px solid #c8c8c8;
+    border-radius: 10px;
+}
+
+.customer-info-container .heading {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.customer-info-container .complete-purchase-btn {
+    margin-top: 30px;
+    font-size: 20px;
+}

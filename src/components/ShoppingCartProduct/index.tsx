@@ -1,15 +1,13 @@
 import React from 'react';
 import { upperCaseFirstLetter } from '../../utils/helper';
-import { getDiscountedPrice, parsePrice } from '../../utils/product';
+import { getDiscountedPrice, getSubtotalPrice, parsePrice } from '../../utils/product';
 import { ShoppingCartProductProps } from './interface';
 import './style.css';
 
 export const ShoppingCartProduct: React.FC<ShoppingCartProductProps> = ({ product, removeToCart }) => {
-    const { title, image, size, color, quantity, discount, price } = product;
-    
-    const currentPrice = discount ? getDiscountedPrice(price, discount) : parsePrice(price);
+    const { title, image, size, color, quantity } = product;
 
-    const subtotalPrice = currentPrice * quantity;
+    const subtotalPrice = getSubtotalPrice(product);
 
     const handleOnClickCloseButton = () => {
         removeToCart(product);

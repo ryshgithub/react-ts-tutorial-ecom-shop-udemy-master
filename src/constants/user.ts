@@ -13,3 +13,13 @@ export const CUSTOMER_INFORMATION_FIELDS_LIST: CustomerInformationFieldsList = {
 }
 
 export const CUSTOMER_INFORMATION_FIELD_WIDTH = 'Calc(100% - 20px)';
+
+export const CUSTOMER_INFORMATION_FIELD_ERROR = 'Please complete this field.';
+
+export const CUSTOMER_INFORMATION_FIELD_INITIAL_STATE: CustomerInformationFieldsList = {
+    completeName: '',
+    address: '',
+    city: '',
+    stateOrProvince: '',
+    mobileNo: '',
+};

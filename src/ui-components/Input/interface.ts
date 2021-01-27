@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface InputProps {
     onChange(event: React.ChangeEvent<HTMLInputElement>): void;
     error?: string;
@@ -5,4 +7,5 @@ export interface InputProps {
     inputStyle?: React.CSSProperties;
     inputContainerStyle?: React.CSSProperties;
     label: string;
+    inputRef?: React.RefObject<HTMLInputElement>
 }

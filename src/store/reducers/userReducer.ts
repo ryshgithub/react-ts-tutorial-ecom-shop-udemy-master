@@ -38,6 +38,8 @@ export const userReducer: Reducer<User, UserReducerAction> = (state = userInitia
             const newCart = state.cart.filter(product => product.productId !== productId && product.variantId !== variantId);
 
             return update(state, { cart: { $set: newCart } });
+        case UserAction.CLEAN_CART:
+            return update(state, { cart: { $set: [] } });
         default:
             return state;
     }

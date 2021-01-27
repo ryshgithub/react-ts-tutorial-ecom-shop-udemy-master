@@ -17,3 +17,14 @@
     margin-top: 30px;
     font-size: 20px;
 }
+
+.customer-info-modal-body {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-info-modal-body .header {
+    font-size: 30px;
+    font-weight: 700;
+}

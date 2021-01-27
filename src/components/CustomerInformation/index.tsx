@@ -1,7 +1,11 @@
 import React from 'react';
+import ShopAPI from '../../api/shopAPI';
+import { ROUTE } from '../../constants/route';
 import { CustomerInformationField, CustomerInformationFieldsList, CUSTOMER_INFORMATION_FIELDS_LIST, CUSTOMER_INFORMATION_FIELD_ERROR, CUSTOMER_INFORMATION_FIELD_INITIAL_STATE, CUSTOMER_INFORMATION_FIELD_WIDTH } from '../../constants/user';
 import { Button } from '../../ui-components/Button';
 import { Input } from '../../ui-components/Input';
+import { Modal } from '../../ui-components/Modal';
+import { omit } from '../../utils/helper';
 import { CustomerInformationFieldRefs, CustomerInformationProps, CustomerInformationState } from './interface';
 import './style.css';
 
@@ -15,6 +19,7 @@ class CustomerInformation extends React.Component<CustomerInformationProps, Cust
             ...CUSTOMER_INFORMATION_FIELD_INITIAL_STATE,
             error: { ...CUSTOMER_INFORMATION_FIELD_INITIAL_STATE },
             hasCompletePurchaseClick: false,
+            showThankyouModal: false,
         }
 
         Object.keys(CUSTOMER_INFORMATION_FIELDS_LIST).forEach(key => {
@@ -96,13 +101,31 @@ class CustomerInformation extends React.Component<CustomerInformationProps, Cust
     }
 
     handleButtonClick = () => {
+        const { cart } = this.props;
         this.setState({ hasCompletePurchaseClick: true })
         if(this.allFieldsAreValid()){
-            console.log('Thank you!')
+            const shopApi = new ShopAPI();
+
+            shopApi.postOrder({
+                cart,
+                user: {
+                    ...omit(this.state, ['error', 'hasCompletePurchaseClick'])
+                }
+            }).then(() => {
+                this.setState({ showThankyouModal: true });
+            })
         }
     }
 
+    handleShopMoreClick = () => {
+        const { cleanCart, history } = this.props;
+
+        cleanCart();
+        history.push(ROUTE.ALL_PRODUCTS);
+    }
+
     render() {
+        const { showThankyouModal } = this.state;
         return (
             <div className="customer-info-container">
                 <div className="heading">Billing Information</div>
@@ -115,6 +138,11 @@ class CustomerInformation extends React.Component<CustomerInformationProps, Cust
                 >
                     Complete Purchase
                 </Button>
+                <Modal modalBodyClassName="customer-info-modal-body" show={showThankyouModal}>
+                    <div className="header">Thank you! We have received your order!</div>
+                    <p>Please wait 5 to 10 business days for your items to arrived.</p>
+                    <Button type="primary" onClick={this.handleShopMoreClick} >Shop More</Button>
+                </Modal>
             </div>
         );
     }

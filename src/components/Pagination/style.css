@@ -21,3 +21,7 @@
     width: 30px;
     height: 30px;
 }
+
+.pagination-container.dark .page-caret {
+    color: white;
+}

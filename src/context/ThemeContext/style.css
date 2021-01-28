@@ -1,0 +1,28 @@
+.app-container {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.app-container.dark h2, .app-container.dark p, .app-container.dark h3
+, .app-container.dark a:not(.shopname), .app-container.dark .text, .app-container.dark .label {
+    color: white;
+}
+
+.theme-context-button {
+    position: fixed;
+    width: 100px;
+    left: Calc(50vw - 50px);
+    top: 0;
+    height: 30px;
+    background-color: #b3b3b3;
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+    font-family: system-ui;
+    color: white;
+}
+
+.theme-context-button.dark {
+    background-color: yellow;
+    color: black;
+}

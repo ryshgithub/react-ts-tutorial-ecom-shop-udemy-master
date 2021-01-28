@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { HeaderNavigation } from './components/HeaderNavigation';
 import { ROUTE } from './constants/route';
@@ -14,6 +13,7 @@ import createSagaMiddleware from 'redux-saga';
 import ShopAction from './store/actions/shopAction';
 import startRootSaga from './store/rootSaga';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import ThemeContextProvider from './context/ThemeContext';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
@@ -26,7 +26,7 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-          <div className="app-container">
+          <ThemeContextProvider>
             <HeaderNavigation />
             <Switch>
               <Route exact component={CheckoutPage} path={ROUTE.CHECKOUT} />
@@ -34,7 +34,7 @@ function App() {
               <Route exact component={HomePage} path={ROUTE.HOME} />
               <Redirect to="/" />
             </Switch>
-          </div>
+          </ThemeContextProvider>
       </BrowserRouter>
     </Provider>
   );

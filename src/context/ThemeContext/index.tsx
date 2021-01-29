@@ -45,14 +45,15 @@ class ThemeContextProvider extends React.Component<{}, ThemeContextProviderState
 
     render() {
         const { theme } = this.state;
-        this.body.style.backgroundColor = theme === 'light' ? 'white' : 'black';
+        const isLightTheme = theme === 'light';
+        this.body.style.backgroundColor = isLightTheme ? 'white' : 'black';
+        const iconClassName = isLightTheme ? 'fa-sun-o' : 'fa-moon-o';
         const themeButton = ReactDOM.createPortal(
-            <Button
+            <i
                 onClick={this.handleChangeTheme}
-                className={`theme-context-button ${theme}`}
-            >
-                {`${upperCaseFirstLetter(theme)} Mode`}
-            </Button>,
+                className={`fa ${iconClassName} theme-context-button ${theme}`}
+                aria-hidden="true"
+            />,
             this.el
         )
 

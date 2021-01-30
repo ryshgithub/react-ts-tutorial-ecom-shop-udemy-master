@@ -25,13 +25,13 @@
 }
 
 .partners-list .amazon {
-    background-image: url('http://localhost:3000/amazon.JPG');
+    background-image: url('http://localhost:1234/public/homepage/amazon.JPG');
 }
 
 .partners-list .shopify {
-    background-image: url('http://localhost:3000/shopify.JPG');
+    background-image: url('http://localhost:1234/public/homepage/shopify.JPG');
 }
 
 .partners-list .wix {
-    background-image: url('http://localhost:3000/wix.JPG');
+    background-image: url('http://localhost:1234/public/homepage/wix.JPG');
 }

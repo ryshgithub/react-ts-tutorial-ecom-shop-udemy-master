@@ -27,13 +27,13 @@
 }
 
 .shop-quality-container .support-local {
-    background-image: url('http://localhost:3000/support-local.JPG');
+    background-image: url('http://localhost:1234/public/homepage/support-local.JPG');
 }
 
 .shop-quality-container .high-quality {
-    background-image: url('http://localhost:3000/high-quality.JPG');
+    background-image: url('http://localhost:1234/public/homepage/high-quality.JPG');
 }
 
 .shop-quality-container .eco-friendly {
-    background-image: url('http://localhost:3000/eco-friendly.JPG');
+    background-image: url('http://localhost:1234/public/homepage/eco-friendly.JPG');
 }

@@ -1,5 +1,5 @@
 import { call, put, select, takeLatest } from "redux-saga/effects";
-import ShopAPI, { GetProducsOptions } from "../../api/shopAPI";
+import ShopAPI, { GetProductsOptions } from "../../api/shopAPI";
 import { convertFiltersToCategories } from "../../utils/helper";
 import ShopAction from "../actions/shopAction";
 import UserAction, { UpdateUserFiltersAction, UpdateUserShopProductsPageAction } from "../actions/userAction";
@@ -15,7 +15,7 @@ function* workerUpdateUserFiltersSaga(action: UpdateUserFiltersAction) {
     try {
         const user: User = yield select((state: StoreStateType) => state.user);
         const newUserPage = 1;
-        const options: GetProducsOptions = {
+        const options: GetProductsOptions = {
             page: newUserPage,
             size: user.shopProductsSize,
             category: convertFiltersToCategories(action.filters)
@@ -39,7 +39,7 @@ function* workerUpdateUserShopProductsPageSaga(action: UpdateUserShopProductsPag
     try {
         const user: User = yield select((state: StoreStateType) => state.user);
 
-        const options: GetProducsOptions = {
+        const options: GetProductsOptions = {
             page: action.shopProductsPage,
             size: user.shopProductsSize,
             category: convertFiltersToCategories(user.filters)

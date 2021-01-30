@@ -1,4 +1,4 @@
-import { GetProducsOptions } from "../../api/shopAPI";
+import { GetProductsOptions } from "../../api/shopAPI";
 import { Product, Shop, ProductFilters, ShopProducts } from "../reducers/shopReducer";
 
 export type ShopReducerAction = SetShopProductsAction | FetchShopProductsAction | SetBestSellerProductsAction | FetchBestSellerProductsAction
@@ -11,7 +11,7 @@ export interface SetShopProductsAction {
 
 export interface FetchShopProductsAction {
     type: typeof ShopAction.FETCH_SHOP_PRODUCTS;
-    options: GetProducsOptions;
+    options: GetProductsOptions;
 }
 
 export interface SetBestSellerProductsAction {
@@ -41,7 +41,7 @@ class ShopAction {
     static readonly FETCH_ALL_BEST_SELLER_PRODUCTS = 'FETCH_ALL_BEST_SELLER_PRODUCTS';
     static readonly SET_BEST_SELLER_PRODUCTS = 'SET_BEST_SELLER_PRODUCTS';
 
-    fetchShopProducts = (options: GetProducsOptions): FetchShopProductsAction => {
+    fetchShopProducts = (options: GetProductsOptions): FetchShopProductsAction => {
         return {
             type: ShopAction.FETCH_SHOP_PRODUCTS,
             options,

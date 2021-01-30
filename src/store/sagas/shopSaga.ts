@@ -1,5 +1,5 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects'
-import ShopAPI, { GetProducsOptions, ProductFiltersAPIResponse } from '../../api/shopAPI';
+import ShopAPI, { GetProductsOptions, ProductFiltersAPIResponse } from '../../api/shopAPI';
 import { convertFiltersToCategories } from '../../utils/helper';
 import ShopAction, { FetchShopProductsAction } from '../actions/shopAction'
 import { Shop, ShopProducts } from '../reducers/shopReducer';
@@ -43,7 +43,7 @@ function* workerFetchShopProductsAndFilterSaga(action: FetchShopProductsAction) 
     try {
         const user: User = yield select((state: StoreStateType) => state.user);
 
-        const options: GetProducsOptions = {
+        const options: GetProductsOptions = {
             page: user.shopProductsPage,
             size: user.shopProductsSize,
         };

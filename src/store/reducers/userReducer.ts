@@ -14,7 +14,7 @@ export interface User {
     cart: ProductPurchase[];
 }
 
-const userInitialState: User = {
+export const userInitialState: User = {
     filters: {
         gender: [],
         category: [],

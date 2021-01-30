@@ -15,7 +15,7 @@ import { ErrorPage } from './containers/ErrorPage';
 import HandleAllError from './components/HandleAllError';
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+const store = createStore(rootReducer, (window as any).initialState ,composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
 sagaMiddleware.run(startRootSaga);
 

@@ -3,7 +3,7 @@ import { CustomerInformationFieldsList } from "../constants/user";
 import { ProductFilters } from "../store/reducers/shopReducer";
 import { ProductPurchase } from "../store/reducers/userReducer";
 
-export interface GetProducsOptions {
+export interface GetProductsOptions {
     page?: number;
     size?: number;
     category?: string[];
@@ -19,7 +19,7 @@ export interface Order {
 }
 
 class ShopAPI {
-    getProducts = (options: GetProducsOptions) => {
+    getProducts = (options: GetProductsOptions) => {
         const { page, size, category } = options;
         const pageQueryParam = `page=${page || ''}`;
         const sizeQueryParam = `&size=${size || ''}`;
